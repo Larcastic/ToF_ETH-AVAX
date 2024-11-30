@@ -27,5 +27,22 @@ function mint(address to, uint256 amount) public onlyOwner {
         _mint(to, amount);
     }
 ```
+
+= As advised for revision, we explicitly called the burning and transferring functions. = 
+
+- Here's the part of the code that explicitly calls the burning function.
+```
+ function burn(uint256 amount) public override {
+        super.burn(amount);
+    }
+```
+- Lastly, here's the part of the code that explicitly calls the transferring function.
+```
+  function transfer(address to, uint256 amount) public override returns (bool) {
+        return super.transfer(to, amount);
+    }
+}
+```
+
 # Author
 Lars James Manansala (larsjamesmanansala@gmail.com)
